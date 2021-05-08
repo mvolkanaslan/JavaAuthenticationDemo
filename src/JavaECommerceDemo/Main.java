@@ -13,8 +13,7 @@ import JavaECommerceDemo.dataAccess.concretes.hibernate.HibernateUserDao;
 public class Main {
 
 	public static void main(String[] args) {
-		AuthService authManager = new AuthManager(new UserManager(new HibernateUserDao()), new EmailVerification());
-//		AuthService authManager = new AuthManager(new UserManager(new EFUserDao()), new SmsVerification());
+		AuthService authManager = new AuthManager(new UserManager(new HibernateUserDao(),new EmailVerification()));
 		authManager.register("Volkan", "ASLAN", "volkan@volkan.com", "123456");
 		System.out.println("-------------------------------");
 		authManager.login("volkan@volkan.com", "123456");

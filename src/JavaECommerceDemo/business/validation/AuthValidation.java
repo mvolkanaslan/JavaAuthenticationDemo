@@ -3,20 +3,12 @@ package JavaECommerceDemo.business.validation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import JavaECommerceDemo.entities.concretes.User;
+
 public class AuthValidation {
-	public static boolean registerValidator(String firstName, String lastName, String email, String password) {
+	public static boolean userValidator(User user) {
 		boolean result = true;
-		boolean[] errors = {emailValidation(email),passwordValidation(password),firstNameValidation(firstName),lastNameValidation(lastName)};
-		for(boolean error:errors) {
-			if(!error) {
-				result= false;
-			}
-		}
-		return result;
-	}
-	public static boolean loginValidator(String email, String password) {
-		boolean result = true;
-		boolean[] errors = {emailValidation(email),passwordValidation(password)};
+		boolean[] errors = {emailValidation(user.getEmail()),passwordValidation(user.getPassword()),firstNameValidation(user.getFirstName()),lastNameValidation(user.getLastName())};
 		for(boolean error:errors) {
 			if(!error) {
 				result= false;
